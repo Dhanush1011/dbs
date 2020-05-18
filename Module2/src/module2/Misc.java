@@ -11,19 +11,20 @@ package module2;
  */
 public class Misc {
     
-    public int[] tobin(int i)
+    public int[] tobin(int i, int x)
     {
-        int ret[] = new int[4];
-        for(int l=0; l<4; l++)
+        
+        int ret[] = new int[x];
+        for(int l=0; l<x; l++)
             ret[l] = 0;
         
         int mval = i;
-        int l = 3;
+        int lt = x-1;
         while(mval>0)
         {
-            ret[l] = mval%2;
+            ret[lt] = mval%2;
             mval = mval/2;
-            l--;
+            lt--;
         }
         
         return ret;

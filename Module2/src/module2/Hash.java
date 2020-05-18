@@ -11,16 +11,16 @@ package module2;
  */
 public class Hash {
     
-    public int[] hval(int i,int mod)
+    public int[] hval(int i,int mod, int sz)
     {
-        int ret[] = new int[4];
-        for(int l=0; l<4; l++)
+        int ret[] = new int[sz];
+        for(int l=0; l<sz; l++)
             ret[l] = 0;
         
         int mval;
         mval = i%mod;
         
-        int l = 3;
+        int l = sz-1;
         while(mval>0)
         {
             ret[l] = mval%2;

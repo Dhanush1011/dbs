@@ -15,19 +15,26 @@ import java.util.HashSet;
 public class Bucket {
     
     String id;
+    int bfr;
     int ld;
     ArrayList<Integer> buck;
     
-    public Bucket(String s,int ldi)
+    public Bucket()
+    {
+        
+    }
+    
+    public Bucket(String s,int ldi,int bfr)
     {
         this.id = s;
         this.ld = ldi;
+        this.bfr = bfr;
         buck = new ArrayList<Integer>();
     }
     
     public boolean isFull()
     {
-        if(this.buck.size()>=3)
+        if(this.buck.size()>=bfr)
             return true;
         else
             return false;
