@@ -160,50 +160,51 @@ public class gui extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(input, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                            .addComponent(findkey)
+                            .addComponent(delkey))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(bfrip, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(modip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(gdip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(70, 70, 70)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(ldip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(Parameters, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(1, 1, 1))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(input, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                                .addComponent(findkey)
-                                .addComponent(delkey))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(findb)
-                                .addComponent(inputb, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(delb))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(hvalgui))
+                            .addComponent(findb)
+                            .addComponent(inputb, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(delb)))
+                    .addComponent(msg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(loc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(msg, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                    .addComponent(Location))
+                    .addComponent(Location, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(bfrip, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(modip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(gdip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(70, 70, 70)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(ldip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Parameters, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(hvalgui)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(13, 13, 13))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bfrip, gdip, ldip, modip});
@@ -211,8 +212,6 @@ public class gui extends javax.swing.JFrame {
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {findkey, input});
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {delb, findb, inputb});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {Location, loc, msg});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,151 +274,161 @@ public class gui extends javax.swing.JFrame {
 
     private void inputbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputbActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel dm = (DefaultTableModel) table.getModel();
-        int rowCount = dm.getRowCount();
-        //Remove rows one by one from the end of the table
-        for (int i = rowCount - 1; i >= 0; i--) {
-            dm.removeRow(i);
-        }
         int ip;
         ip = Integer.parseInt(input.getText());
-        ips.add(ip);
         
-        int sz = Integer.toBinaryString(mod).length();
-        int[] h_value = new int[sz];
-        
-        Hash hash = new Hash();
-        h_value = hash.hval(ip, mod, sz);
-        
-        int[] gdepth = new int[GD];
-        for(int i=0; i<GD; i++)
+        if(ips.contains(ip))
         {
-            gdepth[i] = h_value[sz-GD+i];
-        }
-        
-        Directory d = new Directory();
-        int direct = d.dirvalue(gdepth);
-        
-        Misc m = new Misc();
-        Bucket temp,tempcreate;
-        String s;
-        temp = maps.get(direct);
-        
-        if(!temp.isFull())
-        {
-            System.out.println("YES");
-            temp.addtobuck(ip);
+            msg.setText("Key already exists");
         }
         else
         {
-            if(temp.ld < GD)
+            DefaultTableModel dm = (DefaultTableModel) table.getModel();
+            int rowCount = dm.getRowCount();
+            //Remove rows one by one from the end of the table
+            for (int i = rowCount - 1; i >= 0; i--) {
+                dm.removeRow(i);
+            }
+
+            ips.add(ip);
+
+            int sz = Integer.toBinaryString(mod).length();
+            int[] h_value = new int[sz];
+
+            Hash hash = new Hash();
+            h_value = hash.hval(ip, mod, sz);
+
+            int[] gdepth = new int[GD];
+            for(int i=0; i<GD; i++)
             {
-                s = '1' + temp.id;
-                tempcreate = new Bucket(s,temp.ld+1,bfr);
-                bmaps.add(tempcreate);
-                temp.ld = temp.ld+1;
-                temp.id = '0' + temp.id;
-                for(Bucket b : bmaps)
-                    b.buck.clear();
-                
-                for (Map.Entry mapElement : maps.entrySet())
-                {
-                    int x = (int) mapElement.getKey(); 
-                    int[] bin = m.tobin(x,sz);
-                    Bucket b = maps.get(mapElement.getKey());
-                    int[] bintemp = new int[b.ld];
-                    for(int k=0; k<b.ld; k++)
-                        bintemp[k] = bin[sz-b.ld+k];
-                    
-                    s = m.bintostr(bintemp);
-                    
-                    for(Bucket bt : bmaps)
-                    {
-                        if(bt.id.equals(s))
-                        {
-                            maps.replace(x, bt);
-                        }
-                    }                  
-                }               
+                gdepth[i] = h_value[sz-GD+i];
+            }
+
+            Directory d = new Directory();
+            int direct = d.dirvalue(gdepth);
+
+            Misc m = new Misc();
+            Bucket temp,tempcreate;
+            String s;
+            temp = maps.get(direct);
+
+            if(!temp.isFull())
+            {
+                System.out.println("YES");
+                temp.addtobuck(ip);
             }
             else
             {
-                s = '1' + temp.id;
-                tempcreate = new Bucket(s,temp.ld+1,bfr);
-                bmaps.add(tempcreate);
-                temp.ld = temp.ld+1;
-                temp.id = '0' + temp.id;
-                for(Bucket b : bmaps)
-                    b.buck.clear();
-                
-                for(int i=0; i<Math.pow(2, GD); i++)
+                if(temp.ld < GD)
                 {
-                    int k = i + (int)Math.pow(2, GD);
-                    Bucket t;
-                    t = maps.get(i);
-                    maps.put(k, t);
-                }
-                GD = GD+1;
-                
-                for (Map.Entry mapElement : maps.entrySet())
-                {
-                    int x = (int) mapElement.getKey(); 
-                    int[] bin = m.tobin(x,sz);
-                    Bucket b = maps.get(mapElement.getKey());
-                    int[] bintemp = new int[b.ld];
-                    for(int k=0; k<b.ld; k++)
-                        bintemp[k] = bin[sz-b.ld+k];
-                    
-                    s = m.bintostr(bintemp);
-                    
-                    for(Bucket bt : bmaps)
+                    s = '1' + temp.id;
+                    tempcreate = new Bucket(s,temp.ld+1,bfr);
+                    bmaps.add(tempcreate);
+                    temp.ld = temp.ld+1;
+                    temp.id = '0' + temp.id;
+                    for(Bucket b : bmaps)
+                        b.buck.clear();
+
+                    for (Map.Entry mapElement : maps.entrySet())
                     {
-                        if(bt.id.equals(s))
+                        int x = (int) mapElement.getKey(); 
+                        int[] bin = m.tobin(x,sz);
+                        Bucket b = maps.get(mapElement.getKey());
+                        int[] bintemp = new int[b.ld];
+                        for(int k=0; k<b.ld; k++)
+                            bintemp[k] = bin[sz-b.ld+k];
+
+                        s = m.bintostr(bintemp);
+
+                        for(Bucket bt : bmaps)
                         {
-                            maps.replace(x, bt);
-                        }
-                    }                  
+                            if(bt.id.equals(s))
+                            {
+                                maps.replace(x, bt);
+                            }
+                        }                  
+                    }               
                 }
-                
-            }
-            
-            for(int p : ips)
-            {
-                h_value = hash.hval(p, mod,sz);
-                
-                int[] gdepthn = new int[GD];
-                for(int a=0; a<GD; a++)
+                else
                 {
-                    gdepthn[a] = h_value[sz-GD+a];
+                    s = '1' + temp.id;
+                    tempcreate = new Bucket(s,temp.ld+1,bfr);
+                    bmaps.add(tempcreate);
+                    temp.ld = temp.ld+1;
+                    temp.id = '0' + temp.id;
+                    for(Bucket b : bmaps)
+                        b.buck.clear();
+
+                    for(int i=0; i<Math.pow(2, GD); i++)
+                    {
+                        int k = i + (int)Math.pow(2, GD);
+                        Bucket t;
+                        t = maps.get(i);
+                        maps.put(k, t);
+                    }
+                    GD = GD+1;
+
+                    for (Map.Entry mapElement : maps.entrySet())
+                    {
+                        int x = (int) mapElement.getKey(); 
+                        int[] bin = m.tobin(x,sz);
+                        Bucket b = maps.get(mapElement.getKey());
+                        int[] bintemp = new int[b.ld];
+                        for(int k=0; k<b.ld; k++)
+                            bintemp[k] = bin[sz-b.ld+k];
+
+                        s = m.bintostr(bintemp);
+
+                        for(Bucket bt : bmaps)
+                        {
+                            if(bt.id.equals(s))
+                            {
+                                maps.replace(x, bt);
+                            }
+                        }                  
+                    }
+
                 }
-                
-                direct = d.dirvalue(gdepthn);
-                
-                Bucket fb;
-                fb = maps.get(direct);
-                fb.addtobuck(p);
+
+                for(int p : ips)
+                {
+                    h_value = hash.hval(p, mod,sz);
+
+                    int[] gdepthn = new int[GD];
+                    for(int a=0; a<GD; a++)
+                    {
+                        gdepthn[a] = h_value[sz-GD+a];
+                    }
+
+                    direct = d.dirvalue(gdepthn);
+
+                    Bucket fb;
+                    fb = maps.get(direct);
+                    fb.addtobuck(p);
+                }
+
             }
-            
+
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            Bucket bp;
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+            for(int i=0; i<Math.pow(2, GD); i++)
+            {
+                bp = maps.get(i);
+                System.out.print(m.bintostr(m.tobin(i,GD)));
+                System.out.print("->");
+                System.out.print(bp.ld);
+                System.out.print("->");
+                System.out.print(bp.id);
+                System.out.print("->");
+                System.out.println(bp.buck.toString());
+
+                model.addRow(new Object[]{m.bintostr(m.tobin(i,GD)),bp.id,bp.ld,bp.buck.toString()});            
+            }
+
+            hvalgui.setText(Integer.toString(ip%mod));
         }
         
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        Bucket bp;
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-        for(int i=0; i<Math.pow(2, GD); i++)
-        {
-            bp = maps.get(i);
-            System.out.print(m.bintostr(m.tobin(i,GD)));
-            System.out.print("->");
-            System.out.print(bp.ld);
-            System.out.print("->");
-            System.out.print(bp.id);
-            System.out.print("->");
-            System.out.println(bp.buck.toString());
-            
-            model.addRow(new Object[]{m.bintostr(m.tobin(i,GD)),bp.id,bp.ld,bp.buck.toString()});            
-        }
-        
-        hvalgui.setText(Integer.toString(ip%mod));
         input.setText("");
     }//GEN-LAST:event_inputbActionPerformed
 
@@ -429,44 +438,73 @@ public class gui extends javax.swing.JFrame {
 
     private void ParametersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParametersActionPerformed
         // TODO add your handling code here:
+        msg.setText("");
         bfr = Integer.parseInt(bfrip.getText());
         mod = Integer.parseInt(modip.getText());
         GD = Integer.parseInt(gdip.getText());
         int ld = Integer.parseInt(ldip.getText());
         
-        Misc m = new Misc();
-        
-        int[] ids = new int[ld];
-        String id;
-        for(int i=0; i<Math.pow(2, ld); i++)
-        {            
-            ids = m.tobin(i, ld);
-            id = m.bintostr(ids);
-            
-            Bucket temp = new Bucket(id,ld,bfr);
-            bmaps.add(temp);
-        }
-        
-        Bucket temp;
-        String retid;
-        for(int i=0; i<Math.pow(2,GD); i++)
+        if(bfr<=0)
         {
-            int ret[] = new int[GD];
-            ret = m.tobin(i, GD);
-            int[] retld = new int[ld];
-            for(int k=0; k<ld; k++)
-                retld[k] = ret[GD-ld+k];
-            retid = m.bintostr(retld);
-            
-            for(Bucket b : bmaps)
+            msg.setText("Invalid BFR");
+        }
+        else if(GD<=0)
+        {
+            msg.setText("Invalid Global Depth");
+        }
+        else if(ld<=0)
+        {
+            msg.setText("Invalid Local Depth");
+        }
+        else if(mod <= 0)
+        {
+            msg.setText("Invalid mod value");
+        }
+        else if(ld>GD)
+        {
+            msg.setText("Invalid Local Depth");
+        }
+        else if(GD>Integer.toBinaryString(mod).length())
+        {
+            msg.setText("Invalid Global Depth");
+        }
+        else
+        {
+            Misc m = new Misc();
+        
+            int[] ids = new int[ld];
+            String id;
+            for(int i=0; i<Math.pow(2, ld); i++)
+            {            
+                ids = m.tobin(i, ld);
+                id = m.bintostr(ids);
+
+                Bucket temp = new Bucket(id,ld,bfr);
+                bmaps.add(temp);
+            }
+
+            Bucket temp;
+            String retid;
+            for(int i=0; i<Math.pow(2,GD); i++)
             {
-                if(b.id.equals(retid))
+                int ret[] = new int[GD];
+                ret = m.tobin(i, GD);
+                int[] retld = new int[ld];
+                for(int k=0; k<ld; k++)
+                    retld[k] = ret[GD-ld+k];
+                retid = m.bintostr(retld);
+
+                for(Bucket b : bmaps)
                 {
-                    maps.put(i, b);
-                    break;
-                }
-            }                
-        } 
+                    if(b.id.equals(retid))
+                    {
+                        maps.put(i, b);
+                        break;
+                    }
+                }                
+            }
+        }
+         
         
     }//GEN-LAST:event_ParametersActionPerformed
 
@@ -508,6 +546,8 @@ public class gui extends javax.swing.JFrame {
             loc.setText("Location : ");
             Location.setText("Directory -> " + dkey + " Bucket -> " + b.id);
         }
+        
+        findkey.setText("");
     }//GEN-LAST:event_findbActionPerformed
 
     private void delbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delbActionPerformed
@@ -644,23 +684,25 @@ public class gui extends javax.swing.JFrame {
                 temp.buck.remove(new Integer(dk));
             }
             
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        Bucket bp;
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-        for(int i=0; i<Math.pow(2, GD); i++)
-        {
-            bp = maps.get(i);
-            System.out.print(m.bintostr(m.tobin(i,GD)));
-            System.out.print("->");
-            System.out.print(bp.ld);
-            System.out.print("->");
-            System.out.print(bp.id);
-            System.out.print("->");
-            System.out.println(bp.buck.toString());
-            
-            model.addRow(new Object[]{m.bintostr(m.tobin(i,GD)),bp.id,bp.ld,bp.buck.toString()});            
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            Bucket bp;
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+            for(int i=0; i<Math.pow(2, GD); i++)
+            {
+                bp = maps.get(i);
+                System.out.print(m.bintostr(m.tobin(i,GD)));
+                System.out.print("->");
+                System.out.print(bp.ld);
+                System.out.print("->");
+                System.out.print(bp.id);
+                System.out.print("->");
+                System.out.println(bp.buck.toString());
+
+                model.addRow(new Object[]{m.bintostr(m.tobin(i,GD)),bp.id,bp.ld,bp.buck.toString()});            
+            }
         }
-        }
+        
+        delkey.setText("");
         
     }//GEN-LAST:event_delbActionPerformed
 
