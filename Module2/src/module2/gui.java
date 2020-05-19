@@ -8,6 +8,7 @@ package module2;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -307,13 +308,15 @@ public class gui extends javax.swing.JFrame {
         // TODO add your handling code here:
         int ip;
         ip = Integer.parseInt(input.getText());
-        
+        msg.setText("");
+        loc.setText("");
         if(ips.contains(ip))
         {
             msg.setText("Key already exists");
         }
         else
         {
+            
             DefaultTableModel dm = (DefaultTableModel) table.getModel();
             int rowCount = dm.getRowCount();
             //Remove rows one by one from the end of the table
@@ -328,137 +331,77 @@ public class gui extends javax.swing.JFrame {
 
             Hash hash = new Hash();
             h_value = hash.hval(ip, mod, sz);
-
-            int[] gdepth = new int[GD];
-            for(int i=0; i<GD; i++)
+            
+            int flagin = 0;
+            int count = 0;
+            for(Integer i : ips)
             {
-                gdepth[i] = h_value[sz-GD+i];
+                int[] htemp = new int[sz];
+                htemp = hash.hval(i, mod, sz);
+                if(Arrays.equals(htemp, h_value))
+                    count++;
             }
-
-            Directory d = new Directory();
-            int direct = d.dirvalue(gdepth);
-
-            Misc m = new Misc();
-            Bucket temp,tempcreate;
-            String s;
-            temp = maps.get(direct);
-
-            if(!temp.isFull())
+            
+            if(count==bfr+1)
             {
-                System.out.println("YES");
-                temp.addtobuck(ip);
+                flagin = 1;
             }
+            
+            if(flagin == 1)
+            {
+                msg.setText("Cannot Insert");
+                loc.setText("Please change the mod function");
+                ips.remove(ip);
+            }
+            
             else
             {
-                if(temp.ld < GD)
+                int[] gdepth = new int[GD];
+                for(int i=0; i<GD; i++)
                 {
-                    s = '1' + temp.id;
-                    tempcreate = new Bucket(s,temp.ld+1,bfr);
-                    bmaps.add(tempcreate);
-                    temp.ld = temp.ld+1;
-                    temp.id = '0' + temp.id;
-                    for(Bucket b : bmaps)
-                        b.buck.clear();
+                    gdepth[i] = h_value[sz-GD+i];
+                }
 
-                    for (Map.Entry mapElement : maps.entrySet())
-                    {
-                        int x = (int) mapElement.getKey(); 
-                        int[] bin = m.tobin(x,sz);
-                        Bucket b = maps.get(mapElement.getKey());
-                        int[] bintemp = new int[b.ld];
-                        for(int k=0; k<b.ld; k++)
-                            bintemp[k] = bin[sz-b.ld+k];
+                Directory d = new Directory();
+                int direct = d.dirvalue(gdepth);
 
-                        s = m.bintostr(bintemp);
+                Misc m = new Misc();
+                Bucket temp;
+                String s;
+                temp = maps.get(direct);
 
-                        for(Bucket bt : bmaps)
-                        {
-                            if(bt.id.equals(s))
-                            {
-                                maps.replace(x, bt);
-                            }
-                        }                  
-                    }               
+                if(!temp.isFull())
+                {
+                    System.out.println("YES");
+                    temp.addtobuck(ip);
                 }
                 else
                 {
-                    s = '1' + temp.id;
-                    tempcreate = new Bucket(s,temp.ld+1,bfr);
-                    bmaps.add(tempcreate);
-                    temp.ld = temp.ld+1;
-                    temp.id = '0' + temp.id;
-                    for(Bucket b : bmaps)
-                        b.buck.clear();
-
-                    for(int i=0; i<Math.pow(2, GD); i++)
-                    {
-                        int k = i + (int)Math.pow(2, GD);
-                        Bucket t;
-                        t = maps.get(i);
-                        maps.put(k, t);
-                    }
-                    GD = GD+1;
-
-                    for (Map.Entry mapElement : maps.entrySet())
-                    {
-                        int x = (int) mapElement.getKey(); 
-                        int[] bin = m.tobin(x,sz);
-                        Bucket b = maps.get(mapElement.getKey());
-                        int[] bintemp = new int[b.ld];
-                        for(int k=0; k<b.ld; k++)
-                            bintemp[k] = bin[sz-b.ld+k];
-
-                        s = m.bintostr(bintemp);
-
-                        for(Bucket bt : bmaps)
-                        {
-                            if(bt.id.equals(s))
-                            {
-                                maps.replace(x, bt);
-                            }
-                        }                  
-                    }
-
+                    split(temp,sz);
+                    filleverything(sz);                    
                 }
 
-                for(int p : ips)
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                Bucket bp;
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+                for(int i=0; i<Math.pow(2, GD); i++)
                 {
-                    h_value = hash.hval(p, mod,sz);
+                    bp = maps.get(i);
+                    System.out.print(m.bintostr(m.tobin(i,GD)));
+                    System.out.print("->");
+                    System.out.print(bp.ld);
+                    System.out.print("->");
+                    System.out.print(bp.id);
+                    System.out.print("->");
+                    System.out.println(bp.buck.toString());
 
-                    int[] gdepthn = new int[GD];
-                    for(int a=0; a<GD; a++)
-                    {
-                        gdepthn[a] = h_value[sz-GD+a];
-                    }
-
-                    direct = d.dirvalue(gdepthn);
-
-                    Bucket fb;
-                    fb = maps.get(direct);
-                    fb.addtobuck(p);
+                    model.addRow(new Object[]{m.bintostr(m.tobin(i,GD)),bp.id,bp.ld,bp.buck.toString()});            
                 }
 
+                hvalgui.setText(Integer.toString(ip%mod));
             }
-
-            DefaultTableModel model = (DefaultTableModel) table.getModel();
-            Bucket bp;
-            System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-            for(int i=0; i<Math.pow(2, GD); i++)
-            {
-                bp = maps.get(i);
-                System.out.print(m.bintostr(m.tobin(i,GD)));
-                System.out.print("->");
-                System.out.print(bp.ld);
-                System.out.print("->");
-                System.out.print(bp.id);
-                System.out.print("->");
-                System.out.println(bp.buck.toString());
-
-                model.addRow(new Object[]{m.bintostr(m.tobin(i,GD)),bp.id,bp.ld,bp.buck.toString()});            
             }
-
-            hvalgui.setText(Integer.toString(ip%mod));
-        }
+            
         
         input.setText("");
         
@@ -467,10 +410,125 @@ public class gui extends javax.swing.JFrame {
     private void bfripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bfripActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bfripActionPerformed
+    
+    public void filleverything(int sz)
+    {
+        Bucket fb = new Bucket();
+        int[] h_value = new int[sz];
+        Hash hash = new Hash();
+        Directory d = new Directory();
+        int direct;
+        int flag = 0;
+        for(int p : ips)
+        {
+            h_value = hash.hval(p, mod,sz);
 
+            int[] gdepthn = new int[GD];
+            for(int a=0; a<GD; a++)
+            {
+                gdepthn[a] = h_value[sz-GD+a];
+            }
+            direct = d.dirvalue(gdepthn);
+                        
+            fb = maps.get(direct);
+            if(!fb.isFull())
+            {
+                fb.addtobuck(p);
+            }
+            else
+            {
+                flag=1;
+                break;                            
+            }            
+        }
+        
+        if(flag==1)
+        {
+            split(fb,sz);
+            filleverything(sz);
+        }
+    }
+    public void split(Bucket temp, int sz)
+    {
+        Bucket tempcreate;
+        String s;
+        Misc m = new Misc();
+        if(temp.ld < GD)
+                    {
+                        s = '1' + temp.id;
+                        tempcreate = new Bucket(s,temp.ld+1,bfr);
+                        bmaps.add(tempcreate);
+                        temp.ld = temp.ld+1;
+                        temp.id = '0' + temp.id;
+                        for(Bucket b : bmaps)
+                            b.buck.clear();
+
+                        for (Map.Entry mapElement : maps.entrySet())
+                        {
+                            int x = (int) mapElement.getKey(); 
+                            int[] bin = m.tobin(x,sz);
+                            Bucket b = maps.get(mapElement.getKey());
+                            int[] bintemp = new int[b.ld];
+                            for(int k=0; k<b.ld; k++)
+                                bintemp[k] = bin[sz-b.ld+k];
+
+                            s = m.bintostr(bintemp);
+
+                            for(Bucket bt : bmaps)
+                            {
+                                if(bt.id.equals(s))
+                                {
+                                    maps.replace(x, bt);
+                                }
+                            }                  
+                        }               
+                    }
+                    else
+                    {
+                        s = '1' + temp.id;
+                        tempcreate = new Bucket(s,temp.ld+1,bfr);
+                        bmaps.add(tempcreate);
+                        temp.ld = temp.ld+1;
+                        temp.id = '0' + temp.id;
+                        for(Bucket b : bmaps)
+                            b.buck.clear();
+
+                        for(int i=0; i<Math.pow(2, GD); i++)
+                        {
+                            int k = i + (int)Math.pow(2, GD);
+                            Bucket t;
+                            t = maps.get(i);
+                            maps.put(k, t);
+                        }
+                        GD = GD+1;
+
+                        for (Map.Entry mapElement : maps.entrySet())
+                        {
+                            int x = (int) mapElement.getKey(); 
+                            int[] bin = m.tobin(x,sz);
+                            Bucket b = maps.get(mapElement.getKey());
+                            int[] bintemp = new int[b.ld];
+                            for(int k=0; k<b.ld; k++)
+                                bintemp[k] = bin[sz-b.ld+k];
+
+                            s = m.bintostr(bintemp);
+
+                            for(Bucket bt : bmaps)
+                            {
+                                if(bt.id.equals(s))
+                                {
+                                    maps.replace(x, bt);
+                                }
+                            }                  
+                        }
+
+                    }
+    }
+    
     private void ParametersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParametersActionPerformed
         // TODO add your handling code here:
         msg.setText("");
+        loc.setText("");
         bfr = Integer.parseInt(bfrip.getText());
         mod = Integer.parseInt(modip.getText());
         GD = Integer.parseInt(gdip.getText());
@@ -502,6 +560,8 @@ public class gui extends javax.swing.JFrame {
         }
         else
         {
+            bmaps.clear();
+            maps.clear();
             Misc m = new Misc();
         
             int[] ids = new int[ld];
@@ -534,6 +594,12 @@ public class gui extends javax.swing.JFrame {
                         break;
                     }
                 }                
+            }
+            
+            if(!ips.isEmpty())
+            {
+                int sz = Integer.toBinaryString(mod).length();
+                filleverything(sz);
             }
         } 
         
@@ -599,121 +665,47 @@ public class gui extends javax.swing.JFrame {
         else
         {
             ips.remove(dk);
-            int sz = Integer.toBinaryString(mod).length();
-            int[] h_value = new int[sz];
-            
-            Hash hash = new Hash();
-            h_value = hash.hval(dk, mod, sz);
-        
-            int[] gdepth = new int[GD];
-            for(int i=0; i<GD; i++)
-            {
-                gdepth[i] = h_value[sz-GD+i];
-            }
-        
-            Directory d = new Directory();
-            int direct = d.dirvalue(gdepth);
-        
+            bmaps.clear();
+            maps.clear();
+            bfr = Integer.parseInt(bfrip.getText());
+        mod = Integer.parseInt(modip.getText());
+        GD = Integer.parseInt(gdip.getText());
+        int ld = Integer.parseInt(ldip.getText());
             Misc m = new Misc();
+        
+            int[] ids = new int[ld];
+            String id;
+            for(int i=0; i<Math.pow(2, ld); i++)
+            {            
+                ids = m.tobin(i, ld);
+                id = m.bintostr(ids);
+
+                Bucket temp = new Bucket(id,ld,bfr);
+                bmaps.add(temp);
+            }
+
             Bucket temp;
-            String s;
-            temp = maps.get(direct);
-            Bucket tempc = new Bucket();
-            
-            if(temp.ld>=2)
+            String retid;
+            for(int i=0; i<Math.pow(2,GD); i++)
             {
+                int ret[] = new int[GD];
+                ret = m.tobin(i, GD);
+                int[] retld = new int[ld];
+                for(int k=0; k<ld; k++)
+                    retld[k] = ret[GD-ld+k];
+                retid = m.bintostr(retld);
+
                 for(Bucket b : bmaps)
                 {
-                    if(b.id.charAt(0) != temp.id.charAt(0) && 
-                            b.id.substring(1).equals(temp.id.substring(1)))
+                    if(b.id.equals(retid))
                     {
-                        tempc = b;
+                        maps.put(i, b);
                         break;
                     }
-                }
-                
-                if(temp.buck.size()+tempc.buck.size()==bfr+1)
-                {
-                    
-                    temp.ld = temp.ld-1;
-                    temp.id = tempc.id.substring(1);
-                    
-                    
-                    for(Bucket b : bmaps)
-                        b.buck.clear();
-                    
-                    for (Map.Entry mapElement : maps.entrySet())
-                        {
-                            int x = (int) mapElement.getKey(); 
-                            int[] bin = m.tobin(x,sz);
-                            Bucket b = maps.get(mapElement.getKey());
-                            if(b.id.equals(tempc.id))
-                            {
-                                maps.replace(x, temp);
-                            }
-                        }
-                    bmaps.remove(tempc);
-                    
-                    if(bmaps.size()>Math.pow(2, GD-1) && bmaps.size()<=Math.pow(2,GD))
-                    {                       
-                        for(int p : ips)
-                        {
-                            h_value = hash.hval(p, mod,sz);
-                
-                            int[] gdepthn = new int[GD];
-                            for(int a=0; a<GD; a++)
-                            {
-                                gdepthn[a] = h_value[sz-GD+a];
-                            }
-                
-                            direct = d.dirvalue(gdepthn);
-                
-                            Bucket fb;
-                            fb = maps.get(direct);
-                            fb.addtobuck(p);
-                        }
-                        
-                    }
-                    else 
-                    {
-                        if(!(GD-1<Integer.parseInt(gdip.getText())))
-                        {
-                            GD = GD - 1; 
-                            for(int it=(int) Math.pow(2, GD);it<Math.pow (2, GD+1);it++)
-                            {
-                                maps.remove(it);
-                            }
-                            
-                        }
-               
-                        for(int p : ips)
-                        {
-                            h_value = hash.hval(p, mod,sz);
-                
-                            int[] gdepthn = new int[GD];
-                            for(int a=0; a<GD; a++)
-                            {
-                                gdepthn[a] = h_value[sz-GD+a];
-                            }
-                
-                            direct = d.dirvalue(gdepthn);
-                
-                            Bucket fb;
-                            fb = maps.get(direct);
-                            fb.addtobuck(p);
-                        }
-                        
-                    }
-                }
-                else
-                {
-                    temp.buck.remove(new Integer(dk));
-                }
+                }                
             }
-            else
-            {
-                temp.buck.remove(new Integer(dk));
-            }
+            
+            filleverything(Integer.toBinaryString(mod).length());
             
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         Bucket bp;
