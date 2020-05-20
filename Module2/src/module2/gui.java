@@ -310,6 +310,7 @@ public class gui extends javax.swing.JFrame {
         ip = Integer.parseInt(input.getText());
         msg.setText("");
         loc.setText("");
+        Location.setText("");
         if(ips.contains(ip))
         {
             msg.setText("Key already exists");
@@ -382,7 +383,7 @@ public class gui extends javax.swing.JFrame {
                 }
 
                 DefaultTableModel model = (DefaultTableModel) table.getModel();
-                Bucket bp;
+                Bucket bp = new Bucket();
                 System.out.println("------------------------------------------------------------------------------------------------------------------------------");
                 for(int i=0; i<Math.pow(2, GD); i++)
                 {
@@ -399,6 +400,8 @@ public class gui extends javax.swing.JFrame {
                 }
 
                 hvalgui.setText(Integer.toString(ip%mod));
+                loc.setText("Location");
+                Location.setText("Directory -> " + m.bintostr(m.tobin(direct, GD)) + " Bucket -> " + bp.id);
             }
             }
             
